@@ -3,7 +3,6 @@ import { deliveryData } from "../data";
 import Item from "./Item";
 
 export default function Shops(props) {
-
   const chooseShop = (shop) => {
     props.setShop(shop);
   };
@@ -23,7 +22,10 @@ export default function Shops(props) {
         </ul>
       </aside>
       <main className="menu">
-        {props.shop && deliveryData[props.shop].map((el) => <Item key={el.id} item={el} />)}
+        {props.shop &&
+          deliveryData[props.shop].map((el) => (
+            <Item key={el.id} item={el} addToOrders={props.addToOrders} />
+          ))}
       </main>
     </div>
   );

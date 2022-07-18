@@ -21,7 +21,6 @@ body {
   margin-bottom: 0;
   padding-bottom: 0;
   position: relative;
-
 }
 .nav-bar > .link {
   margin-top: 0;
@@ -37,12 +36,12 @@ body {
   color: #1e392a;
 }
 .nav-bar span {
-position: absolute;
-text-transform: uppercase;
-left: 58%;
-font-weight: bold;
-font-size: 18px;
-color: white;
+  position: absolute;
+  text-transform: uppercase;
+  left: 58%;
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
 }
 
 /* SHOPS */
@@ -123,6 +122,20 @@ color: white;
 .menu b {
   color: #5fa36a;
 }
+.menu button {
+  background: #008963;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+}
+.menu button:hover {
+  background: #146b52;
+}
+.menu .item button {
+  position: relative;
+  left: 70px;
+}
 /* SHOPPING CART */
 .shopping-cart {
   height: 92vh;
@@ -130,23 +143,18 @@ color: white;
   background: #f3f3fb;
   display: flex;
 }
+
+/* Personal Data */
 .personal-data {
   background: #f3f3fb;
   height: 100%;
   width: 100%;
 }
-
-.cart {
-  background: #f3f3fb;
-  height: 100%;
-  width: 100%;
-}
-/* Input */
 .input-ccontainer {
   margin: 20px;
   padding-left: 10%;
 }
-input {
+.input-ccontainer > input {
   width: 85%;
   height: 40px;
   border-radius: 15px;
@@ -160,10 +168,115 @@ input:focus {
   outline: none;
   border: 2px solid #008963;
 }
-
 label {
   display: block;
   padding-bottom: 10px;
   font-size: 18px;
   padding-left: 10px;
+}
+/* Cart content */
+.cart {
+  background: #f3f3fb;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.cart .empty h2 {
+  text-align: center;
+  font-size: 20px;
+  margin: 20px;
+  font-weight: 300;
+}
+
+.cart .item {
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(230, 229, 229);
+}
+
+.cart .item img {
+  width: 85px;
+  float: left;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.cart .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.cart .item b {
+  font-size: 18px;
+}
+
+.cart .item .delete-icon {
+  font-size: 18px;
+  padding-right: 21px;
+  float: right;
+  position: relative;
+  bottom: 85px;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+  color: rgb(153, 153, 153);
+}
+
+.cart .item .delete-icon:hover {
+  color: #d83030;
+  transform: scale(1.1);
+}
+
+.cart .total {
+  padding: 15px 40px 15px 0;
+  float: right;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* Quantity Input */
+
+.quantity-input {
+  font-family: "Montserrat", sans-serif;
+  width: 40px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-input:focus,
+.quantity-input:hover {
+  outline: none;
+  border: 1px solid rgb(153, 153, 153);
+}
+/* Quantity button */
+
+.dect-inc-btn {
+  margin: 10px;
+  font-size: large;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #5fa36a;
+  text-align: center;
+  position: relative;
+  top: 3px;
+}
+.dect-inc-btn:hover {
+  color: #4e8b58;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px 0 20px;
 }
