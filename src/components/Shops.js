@@ -1,47 +1,29 @@
 import React from "react";
+import { deliveryData } from "../data";
+import Item from "./Item";
 
-export default function Shops() {
+export default function Shops(props) {
+
+  const chooseShop = (shop) => {
+    props.setShop(shop);
+  };
+
   return (
     <div className="shops">
       <aside className="shops-list">
         <h2>Shops:</h2>
         <ul>
-          <li>Lots of salmon</li>
-          <li>Chicago Pizza</li>
-          <li>Milk Bar</li>
+          {Object.keys(deliveryData).map((shop) => {
+            return (
+              <li key={shop} onClick={() => chooseShop(shop)}>
+                {shop}
+              </li>
+            );
+          })}
         </ul>
       </aside>
       <main className="menu">
-        <div className="item">
-          <img src="./img/4sira.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/cheeseburger.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/chicagobbq.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/duck.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/hotdog.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/jack.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/4sira.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/cheeseburger.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/chicagobbq.png" alt="hjnl" />
-        </div>
-        <div className="item">
-          <img src="./img/duck.png" alt="hjnl" />
-        </div>
+        {props.shop && deliveryData[props.shop].map((el) => <Item key={el.id} item={el} />)}
       </main>
     </div>
   );

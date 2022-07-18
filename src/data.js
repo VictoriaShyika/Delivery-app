@@ -1,5 +1,5 @@
-export const data = {
-  chicagoPizza: [
+export const deliveryData = {
+  "Chicago Pizza": [
     {
       id: 1,
       title: "Пепероні",
@@ -81,7 +81,7 @@ export const data = {
       price: "635",
     },
   ],
-  bahatoLososya: [
+  "A lot of salmon": [
     {
       id: 1,
       title: "Філадельфія з лососем",
@@ -163,7 +163,7 @@ export const data = {
       price: "365",
     },
   ],
-  milkBar: [
+  "Milk Bar": [
     {
       id: 1,
       title: "Baby Vika",
@@ -245,7 +245,7 @@ export const data = {
       price: "365",
     },
   ],
-  thaiHello: [
+  "Thai Hello": [
     {
       id: 1,
       title: "Салат з томатами",

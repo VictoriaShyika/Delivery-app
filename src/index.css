@@ -20,6 +20,8 @@ body {
   border-radius: 15px 15px 0 0px;
   margin-bottom: 0;
   padding-bottom: 0;
+  position: relative;
+
 }
 .nav-bar > .link {
   margin-top: 0;
@@ -33,6 +35,14 @@ body {
 
 .nav-bar > .link:hover {
   color: #1e392a;
+}
+.nav-bar span {
+position: absolute;
+text-transform: uppercase;
+left: 58%;
+font-weight: bold;
+font-size: 18px;
+color: white;
 }
 
 /* SHOPS */
@@ -79,11 +89,12 @@ body {
   justify-content: flex-start;
   margin-left: auto;
   margin-right: auto;
+  overflow-x: auto;
 }
 
 .menu .item {
   width: 20%;
-  background: #f5f5f5;
+  background: #f3f3fb;
   margin-bottom: 15px;
   padding-bottom: 15px;
   margin-left: calc(10% / 4);
@@ -102,6 +113,16 @@ body {
 .full-item img:hover {
   transform: scale(1.05);
 }
+.menu h2,
+.menu p,
+.menu b {
+  margin: 10px 20px;
+  color: #333;
+}
+
+.menu b {
+  color: #5fa36a;
+}
 /* SHOPPING CART */
 .shopping-cart {
   height: 92vh;
@@ -113,7 +134,6 @@ body {
   background: #f3f3fb;
   height: 100%;
   width: 100%;
-
 }
 
 .cart {
@@ -125,7 +145,6 @@ body {
 .input-ccontainer {
   margin: 20px;
   padding-left: 10%;
-
 }
 input {
   width: 85%;
