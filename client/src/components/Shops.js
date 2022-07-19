@@ -1,8 +1,17 @@
-import React from "react";
-import { deliveryData } from "../data";
+import React, { useEffect } from "react";
 import Item from "./Item";
+import axios from "axios";
 
 export default function Shops(props) {
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get("/delivery-data");
+      props.setDeliveryData(data);
+    };
+    fetchData();
+    // eslint-disable-next-line
+  }, []);
+
   const chooseShop = (shop) => {
     props.setShop(shop);
   };
@@ -12,7 +21,7 @@ export default function Shops(props) {
       <aside className="shops-list">
         <h2>Shops:</h2>
         <ul>
-          {Object.keys(deliveryData).map((shop) => {
+          {Object.keys(props.deliveryData).map((shop) => {
             return (
               <li key={shop} onClick={() => chooseShop(shop)}>
                 {shop}
@@ -23,7 +32,7 @@ export default function Shops(props) {
       </aside>
       <main className="menu">
         {props.shop &&
-          deliveryData[props.shop].map((el) => (
+          props.deliveryData[props.shop].map((el) => (
             <Item key={el.id} item={el} addToOrders={props.addToOrders} />
           ))}
       </main>

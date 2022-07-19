@@ -13,7 +13,7 @@ export default function CartContent(props) {
     <div>
       {props.orders.map((el) => (
         <Order
-          key={el.id}
+          key={`${el.id}${el.category}`}
           item={el}
           onDelete={props.onDelete}
           listener={listener}

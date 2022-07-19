@@ -7,11 +7,12 @@ import { useState } from "react";
 function App() {
   const [shop, setShop] = useState(null);
   const [orders, setOrders] = useState([]);
+  const [deliveryData, setDeliveryData] = useState({});
 
   const addToOrders = (item) => {
     let isInArray = false;
     orders.forEach((el) => {
-      if (el.id === item.id) {
+      if (el.id === item.id && el.category === item.category) {
         isInArray = true;
         el.quantity += 1;
       }
@@ -21,7 +22,6 @@ function App() {
       setOrders([item, ...orders]);
       item.quantity = 1;
     }
-    console.log("Orders: ", orders);
   };
 
   const onDelete = (id) => {
@@ -35,7 +35,16 @@ function App() {
         <Route
           path="/shops"
           element={
-            <Shops shop={shop} setShop={setShop} addToOrders={addToOrders} />
+            <Shops
+              shop={shop}
+              setShop={setShop}
+              addToOrders={addToOrders}
+              deliveryData={deliveryData}
+              setDeliveryData={setDeliveryData}
+              onClick={() => {
+                console.log(deliveryData);
+              }}
+            />
           }
         />
         <Route
