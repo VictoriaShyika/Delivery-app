@@ -66,7 +66,14 @@ export default function ShoppingCart(props) {
       <main className="cart">
         <div className="cart-item">
           {props.orders.length ? (
-            <CartContent orders={props.orders} onDelete={props.onDelete} />
+            <CartContent
+              orders={props.orders}
+              onDelete={props.onDelete}
+              name={name}
+              email={email}
+              phone={phone}
+              address={address}
+            />
           ) : (
             showNothing()
           )}

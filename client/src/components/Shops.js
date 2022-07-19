@@ -5,8 +5,9 @@ import axios from "axios";
 export default function Shops(props) {
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get("/delivery-data");
-      props.setDeliveryData(data);
+      const data = await axios.get("/delivery/data");
+      const deliveryData = data.data.deliveryData["0"];
+      props.setDeliveryData(deliveryData);
     };
     fetchData();
     // eslint-disable-next-line
@@ -22,11 +23,12 @@ export default function Shops(props) {
         <h2>Shops:</h2>
         <ul>
           {Object.keys(props.deliveryData).map((shop) => {
-            return (
-              <li key={shop} onClick={() => chooseShop(shop)}>
-                {shop}
-              </li>
-            );
+            if (shop != "_id")
+              return (
+                <li key={shop} onClick={() => chooseShop(shop)}>
+                  {shop}
+                </li>
+              );
           })}
         </ul>
       </aside>

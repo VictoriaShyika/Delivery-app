@@ -9,6 +9,12 @@ function App() {
   const [orders, setOrders] = useState([]);
   const [deliveryData, setDeliveryData] = useState({});
 
+  const checkOrder = () => {
+    if (orders) {
+      console.log(orders[0]?.title);
+    }
+  };
+
   const addToOrders = (item) => {
     let isInArray = false;
     orders.forEach((el) => {
@@ -21,6 +27,7 @@ function App() {
     if (!isInArray) {
       setOrders([item, ...orders]);
       item.quantity = 1;
+      checkOrder();
     }
   };
 

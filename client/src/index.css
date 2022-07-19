@@ -179,7 +179,6 @@ label {
   background: #f3f3fb;
   height: 100%;
   width: 100%;
-  overflow: auto;
 }
 .cart .empty h2 {
   text-align: center;
@@ -188,8 +187,13 @@ label {
   font-weight: 300;
 }
 
+.cart-content {
+  max-height: 75vh;
+  overflow: auto;
+}
+
 .cart .item {
-  width: 100%;
+  width: 99%;
   float: left;
   margin-top: 10px;
   padding-bottom: 10px;
@@ -204,8 +208,9 @@ label {
 }
 
 .cart .item h2 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
+  font-weight: 400;
 }
 
 .cart .item b {
@@ -279,4 +284,20 @@ label {
   justify-content: space-between;
   align-items: center;
   padding: 15px 50px 0 20px;
+}
+/* Submit button */
+.submit {
+  background: #008963;
+  font-size: 20px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  position: relative;
+  top: 50px;
+  left: 40%;
+
+}
+.submit:hover {
+  background: #146b52;
 }
