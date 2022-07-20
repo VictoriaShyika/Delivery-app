@@ -66,6 +66,7 @@ body {
   margin: 2px 5px;
   border-radius: 10px;
   text-align: center;
+  cursor: pointer;
 }
 .shops-list li:hover {
   background: #146b52;
@@ -128,6 +129,7 @@ body {
   border: none;
   border-radius: 15px;
   color: white;
+  cursor: pointer;
 }
 .menu button:hover {
   background: #146b52;

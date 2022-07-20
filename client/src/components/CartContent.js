@@ -37,11 +37,12 @@ export default function CartContent(props) {
             onDelete={props.onDelete}
             listener={listener}
             setListener={setListener}
+            orders={props.orders}
           />
         ))}
       </div>
 
-      <p className="total">Total price: {total.toFixed(2)}$</p>
+      <p className="total">Total price: {total.toFixed(2)} грн</p>
       <div>
         <Button onClick={() => sendData()} className="submit">
           Submit

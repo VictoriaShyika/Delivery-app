@@ -2,37 +2,53 @@ import { Route, Routes } from "react-router-dom";
 import ShoppingCart from "./components/ShoppingCart";
 import Shops from "./components/Shops";
 import NavBar from "./components/NavBar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const [shop, setShop] = useState(null);
-  const [orders, setOrders] = useState([]);
+  const [shop, setShop] = useState(
+    JSON.parse(localStorage.getItem("shop")) || null
+  );
+  const [orders, setOrders] = useState(
+    JSON.parse(localStorage.getItem("order-list")) || []
+  );
   const [deliveryData, setDeliveryData] = useState({});
 
-  const checkOrder = () => {
-    if (orders) {
-      console.log(orders[0]?.title);
-    }
-  };
+  const [notif, setNotif] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("order-list", JSON.stringify(orders));
+  }, [orders]);
+
+  useEffect(() => {
+    localStorage.setItem("shop", JSON.stringify(shop));
+    console.log(shop);
+  }, [shop]);
 
   const addToOrders = (item) => {
     let isInArray = false;
     orders.forEach((el) => {
-      if (el.id === item.id && el.category === item.category) {
+      if (el.id === item.id) {
         isInArray = true;
         el.quantity += 1;
+        toast.success(`${item.title} added to cart.`);
       }
     });
 
     if (!isInArray) {
       setOrders([item, ...orders]);
       item.quantity = 1;
-      checkOrder();
+      toast.success(`${item.title} added to cart.`);
     }
   };
 
   const onDelete = (id) => {
     setOrders(orders.filter((el) => el.id !== id));
+
+    if (orders.length === 1) {
+      setShop(null);
+    }
   };
 
   return (
@@ -40,7 +56,7 @@ function App() {
       <NavBar shop={shop} />
       <Routes>
         <Route
-          path="/shops"
+          path="/"
           element={
             <Shops
               shop={shop}
@@ -48,9 +64,8 @@ function App() {
               addToOrders={addToOrders}
               deliveryData={deliveryData}
               setDeliveryData={setDeliveryData}
-              onClick={() => {
-                console.log(deliveryData);
-              }}
+              notif={notif}
+              orders={orders}
             />
           }
         />

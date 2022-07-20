@@ -15,6 +15,7 @@ export default function Order(props) {
       setQuantity((props.item.quantity -= 1));
     }
     setPrice(price);
+    localStorage.setItem("order-list", JSON.stringify(props.orders));
     props.setListener(!props.listener);
   };
   const onAddQuantity = () => {
@@ -22,6 +23,7 @@ export default function Order(props) {
       setQuantity((props.item.quantity += 1));
     }
     setPrice(price);
+    localStorage.setItem("order-list", JSON.stringify(props.orders));
     props.setListener(!props.listener);
   };
 
@@ -30,6 +32,7 @@ export default function Order(props) {
       setQuantity((props.item.quantity = Number(e.target.value)));
     }
     setPrice(price);
+    localStorage.setItem("order-list", JSON.stringify(props.orders));
     props.setListener(!props.listener);
   };
 
@@ -54,7 +57,7 @@ export default function Order(props) {
             <HiOutlinePlus />
           </Button>
         </div>
-        <b>{priceEquation}$</b>
+        <b>{priceEquation} грн</b>
       </div>
 
       <MdClose
