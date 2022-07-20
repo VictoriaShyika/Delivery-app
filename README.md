@@ -15,8 +15,12 @@ To run server run from root repo $npm start
 To run client change directory to client and run $npm start
 
 The Delivery App has two pages
+
 First page shows the list with shop and menu
 Second page show Shopping Cart
+
+DataBase on Mongodb
+
 
 
 
