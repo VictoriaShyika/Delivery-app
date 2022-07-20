@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CartContent from "./CartContent";
 import Input from "./UI/Input";
+import { ToastContainer } from "react-toastify";
 
 export default function ShoppingCart(props) {
   const [name, setName] = useState("");
@@ -68,17 +69,30 @@ export default function ShoppingCart(props) {
           {props.orders.length ? (
             <CartContent
               orders={props.orders}
+              setOrders={props.setOrders}
               onDelete={props.onDelete}
               name={name}
               email={email}
               phone={phone}
               address={address}
+              setShop={props.setShop}
             />
           ) : (
             showNothing()
           )}
         </div>
       </main>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 }

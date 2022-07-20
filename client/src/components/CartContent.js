@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Order from "./Order";
 import Button from "./UI/Button";
+import { toast } from "react-toastify";
 
 export default function CartContent(props) {
   const [listener, setListener] = useState(true);
@@ -13,15 +14,22 @@ export default function CartContent(props) {
 
   const sendData = async () => {
     const orderData = {
-      "name": props.name,
-      "email": props.email,
-      "phone": props.phone,
-      "address": props.address,
-      "order": props.orders,
+      name: props.name,
+      email: props.email,
+      phone: props.phone,
+      address: props.address,
+      order: props.orders,
     };
     try {
-      const resp = await axios.post("http://localhost:5000/order/create", orderData);
+      const resp = await axios.post(
+        "http://localhost:5000/order/create",
+        orderData
+      );
       console.log(resp.data);
+      props.setOrders([]);
+      props.setShop(null)
+
+      toast.success("Order sent");
     } catch (error) {
       console.log(error.response);
     }
@@ -48,6 +56,7 @@ export default function CartContent(props) {
           Submit
         </Button>
       </div>
+
     </div>
   );
 }

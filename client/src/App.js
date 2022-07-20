@@ -3,7 +3,7 @@ import ShoppingCart from "./components/ShoppingCart";
 import Shops from "./components/Shops";
 import NavBar from "./components/NavBar";
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -14,8 +14,6 @@ function App() {
     JSON.parse(localStorage.getItem("order-list")) || []
   );
   const [deliveryData, setDeliveryData] = useState({});
-
-  const [notif, setNotif] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("order-list", JSON.stringify(orders));
@@ -64,14 +62,20 @@ function App() {
               addToOrders={addToOrders}
               deliveryData={deliveryData}
               setDeliveryData={setDeliveryData}
-              notif={notif}
               orders={orders}
             />
           }
         />
         <Route
           path="/cart"
-          element={<ShoppingCart orders={orders} onDelete={onDelete} />}
+          element={
+            <ShoppingCart
+              orders={orders}
+              setOrders={setOrders}
+              onDelete={onDelete}
+              setShop={setShop}
+            />
+          }
         />
       </Routes>
     </div>
