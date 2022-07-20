@@ -48,7 +48,7 @@ export default function Shops(props) {
         />
       </aside>
       <main className="menu">
-        {console.log(props.shop)}
+        {!props.shop && <img className="screen" src="./img/emptyScreenImage.jpeg"/>}
         {props.shop &&
           props.deliveryData[props.shop]?.map((el) => (
             <Item key={el.id} item={el} addToOrders={props.addToOrders} />
