@@ -1,5 +1,7 @@
 # Delivery-app
 
+## [Site_work.gif](https://github.com/VictoriaShyika/Delivery-app/blob/master/Site_work.gif) open to see delivery-app functionality
+
 To clone repo run $ git clone https://github.com/(copiedURL)
 
 To install dependencies in cloned repo run $ npm install 
