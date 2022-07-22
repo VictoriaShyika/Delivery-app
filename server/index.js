@@ -5,6 +5,7 @@ import config from "./db.js";
 import OrderRouter from "./OrderRouter.js";
 import DataRouter from "./DataRouter.js";
 import cors from "cors";
+import path from "path"
 
 const app = express();
 app.use(cors());
@@ -20,6 +21,8 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use("/order", OrderRouter);
 app.use("/delivery", DataRouter);
