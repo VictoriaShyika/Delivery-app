@@ -1,6 +1,6 @@
 import express from "express";
 import { deliveryData } from "./data.js";
-
+import path from "path";
 import cors from "cors";
 
 const app = express();
@@ -10,8 +10,10 @@ app.get("/data", function (req, res) {
   res.send(deliveryData);
 });
 
-// app.use(express.static('../client/build'));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.listen(5001, () => {
-  console.log("Server is running at http://localhost:5001:");
+const port = process.env.PORT || 5001
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}:`);
 });
