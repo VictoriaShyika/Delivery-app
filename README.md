@@ -1,6 +1,6 @@
 # Delivery-app
 
-## [DeliveryApp.gif](https://github.com/VictoriaShyika/Delivery-app/blob/master/DeliveryApp.gif) open to see delivery-app functionality
+## https://victoria-delivery-app.herokuapp.com/
 
 To clone repo run $ git clone https://github.com/(copiedURL)
 
@@ -26,7 +26,7 @@ Cart data saving in local storage
 
 Only when cart empty you can choose shop
 
-DatBase on Mongodb
+DataBase on Mongodb
 
 
 
