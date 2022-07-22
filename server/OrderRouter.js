@@ -1,7 +1,7 @@
-const express = require("express");
-const OrderRouter = express.Router();
+import express from "express";
+import Order from "./Order";
 
-const Order = require("./Order");
+const OrderRouter = express.Router();
 
 OrderRouter.route("/create").post(function (req, res) {
   const order = new Order(req.body);

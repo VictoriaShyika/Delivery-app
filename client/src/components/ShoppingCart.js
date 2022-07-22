@@ -84,7 +84,7 @@ export default function ShoppingCart(props) {
       </main>
       <ToastContainer
         position="bottom-left"
-        autoClose={5000}
+        autoClose={1000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

@@ -21,7 +21,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("shop", JSON.stringify(shop));
-    console.log(shop);
   }, [shop]);
 
   const addToOrders = (item) => {
