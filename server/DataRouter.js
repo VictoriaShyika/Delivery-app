@@ -1,11 +1,12 @@
 import express from "express";
-import Data from "./Data.js";
+// import Data from "./Data.js";
+import { data2 } from "./data2.js";
 
 const DataRouter = express.Router();
 
 DataRouter.route("/data").get(async function (req, res) {
   try {
-    const deliveryData = await Data.find();
+    const deliveryData = data2;
 
     return res.status(200).json({
       success: true,

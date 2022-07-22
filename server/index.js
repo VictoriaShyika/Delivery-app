@@ -10,14 +10,14 @@ import path from "path"
 const app = express();
 app.use(cors());
 
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
-  () => {
-    console.log("Database is connected");
-  },
-  (err) => {
-    console.log("Can not connect to the database " + err);
-  }
-);
+// mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+//   () => {
+//     console.log("Database is connected");
+//   },
+//   (err) => {
+//     console.log("Can not connect to the database " + err);
+//   }
+// );
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
