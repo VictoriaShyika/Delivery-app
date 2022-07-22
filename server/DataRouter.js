@@ -1,5 +1,5 @@
 import express from "express";
-import Data from "./Data";
+import Data from "./Data.js";
 
 const DataRouter = express.Router();
 
@@ -18,4 +18,4 @@ DataRouter.route("/data").get(async function (req, res) {
   }
 });
 
-module.exports = DataRouter;
+export default DataRouter;

@@ -24,4 +24,4 @@ const Order = new Schema(
   }
 );
 
-module.exports = mongoose.model("Order", Order);
+export default mongoose.model("Order", Order);

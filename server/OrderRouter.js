@@ -1,5 +1,5 @@
 import express from "express";
-import Order from "./Order";
+import Order from "./Order.js";
 
 const OrderRouter = express.Router();
 
@@ -16,4 +16,4 @@ OrderRouter.route("/create").post(function (req, res) {
     });
 });
 
-module.exports = OrderRouter;
+export default OrderRouter;

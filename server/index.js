@@ -1,9 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import config from "./db";
-import OrderRouter from "./OrderRouter";
-import DataRouter from "./DataRouter";
+import config from "./db.js";
+import OrderRouter from "./OrderRouter.js";
+import DataRouter from "./DataRouter.js";
 import cors from "cors";
 
 const app = express();

@@ -27,4 +27,4 @@ const Data = new Schema(
   }
 );
 
-module.exports = mongoose.model("Data", Data);
+export default mongoose.model("Data", Data);
