@@ -6,9 +6,9 @@ import { toast, ToastContainer } from "react-toastify";
 export default function Shops(props) {
   useEffect(() => {
     const fetchData = async () => {
-      const data = await axios.get("/delivery/data");
-      const deliveryData = data.data.deliveryData["0"];
-      props.setDeliveryData(deliveryData);
+      const data = await axios.get("/data");
+      console.log(data)
+      props.setDeliveryData(data.data);
     };
     fetchData();
     // eslint-disable-next-line
@@ -30,7 +30,6 @@ export default function Shops(props) {
           {
             // eslint-disable-next-line
             Object.keys(props.deliveryData).map((shop) => {
-              if (shop !== "_id")
                 return (
                   <li key={shop} onClick={() => chooseShop(shop)}>
                     {shop}
