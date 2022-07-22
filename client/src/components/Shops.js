@@ -22,7 +22,8 @@ export default function Shops(props) {
   };
 
   return (
-    <div className="shops">
+    <div className="shops" style={ props.shop && { background:'#f3f3fb'}}
+    >
       <aside className="shops-list">
         <h2>Shops:</h2>
         <ul>
@@ -48,7 +49,6 @@ export default function Shops(props) {
         />
       </aside>
       <main className="menu">
-        {!props.shop && <img className="screen" src="./img/emptyScreenImage.jpeg"/>}
         {props.shop &&
           props.deliveryData[props.shop]?.map((el) => (
             <Item key={el.id} item={el} addToOrders={props.addToOrders} />
