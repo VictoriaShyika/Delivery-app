@@ -75,6 +75,10 @@ export default function ShoppingCart(props) {
               email={email}
               phone={phone}
               address={address}
+              setName={setName}
+              setEmail={setEmail}
+              setPhone={setPhone}
+              setAddress={setAddress}
               setShop={props.setShop}
             />
           ) : (

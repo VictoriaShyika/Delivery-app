@@ -13,25 +13,29 @@ export default function CartContent(props) {
   );
 
   const sendData = async () => {
-    const orderData = {
-      name: props.name,
-      email: props.email,
-      phone: props.phone,
-      address: props.address,
-      order: props.orders,
-    };
-    try {
-      const resp = await axios.post(
-        "http://localhost:5000/order/create",
-        orderData
-      );
-      console.log(resp.data);
-      props.setOrders([]);
-      props.setShop(null)
-
-      toast.success("Order sent");
-    } catch (error) {
-      console.log(error.response);
+    if (props.name && props.email && props.phone && props.address) {
+      const orderData = {
+        name: props.name,
+        email: props.email,
+        phone: props.phone,
+        address: props.address,
+        order: props.orders,
+      };
+      try {
+        const resp = await axios.post("/order/create", orderData);
+        console.log(resp.data);
+        props.setOrders([]);
+        props.setShop(null);
+        props.setName("");
+        props.setEmail("");
+        props.setPhone("");
+        props.setAddress("");
+        toast.success("Order sent");
+      } catch (error) {
+        console.log(error.response);
+      }
+    } else {
+      toast.error("Fill all filed to send order");
     }
   };
 
@@ -56,7 +60,6 @@ export default function CartContent(props) {
           Submit
         </Button>
       </div>
-
     </div>
   );
 }
