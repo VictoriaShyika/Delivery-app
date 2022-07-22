@@ -15,6 +15,7 @@ export default function Shops(props) {
   }, []);
 
   const chooseShop = (shop) => {
+    // eslint-disable-next-line
     if (props.orders == false) {
       return props.setShop(shop);
     }
@@ -22,19 +23,21 @@ export default function Shops(props) {
   };
 
   return (
-    <div className="shops" style={ props.shop && { background:'#f3f3fb'}}
-    >
+    <div className="shops" style={props.shop && { background: "#f3f3fb" }}>
       <aside className="shops-list">
         <h2>Shops:</h2>
         <ul>
-          {Object.keys(props.deliveryData).map((shop) => {
-            if (shop !== "_id")
-              return (
-                <li key={shop} onClick={() => chooseShop(shop)}>
-                  {shop}
-                </li>
-              );
-          })}
+          {
+            // eslint-disable-next-line
+            Object.keys(props.deliveryData).map((shop) => {
+              if (shop !== "_id")
+                return (
+                  <li key={shop} onClick={() => chooseShop(shop)}>
+                    {shop}
+                  </li>
+                );
+            })
+          }
         </ul>
         <ToastContainer
           position="bottom-left"
