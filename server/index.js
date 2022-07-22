@@ -15,7 +15,7 @@ app.get("/data", function (req, res) {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 const port = process.env.PORT || 5001
 
