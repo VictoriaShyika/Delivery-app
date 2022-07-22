@@ -6,7 +6,6 @@ import OrderRouter from "./OrderRouter.js";
 import DataRouter from "./DataRouter.js";
 import cors from "cors";
 import path from "path"
-import { fileURLToPath } from 'url';
 
 const app = express();
 app.use(cors());
@@ -23,10 +22,7 @@ mongoose.connect(config.DB, { useNewUrlParser: true }).then(
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static('../client/build'));
 
 app.use("/order", OrderRouter);
 app.use("/delivery", DataRouter);
