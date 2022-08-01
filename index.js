@@ -35,10 +35,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/order", OrderRouter);
 app.use("/delivery", DataRouter);
 
-app.get('/cart', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html/cart'));
-});
-
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
