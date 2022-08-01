@@ -35,6 +35,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/order", OrderRouter);
 app.use("/delivery", DataRouter);
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
