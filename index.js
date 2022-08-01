@@ -16,7 +16,7 @@ app.use(cors());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(express.static(path.join(__dirname, "/client/build/index.html")));
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 const port = process.env.PORT || 5001;
 
@@ -34,6 +34,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/order", OrderRouter);
 app.use("/delivery", DataRouter);
+
+app.get('/cart', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html/cart'));
+});
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
